@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#f2ede4"/>
+  <rect x="0" y="0" width="1080" height="8" fill="#E8200A"/>
+  <text x="80" y="280" font-family="Arial, sans-serif" font-size="42" font-weight="300" fill="rgba(13,13,13,0.4)" letter-spacing="-1">you already missed last week.</text>
+  <line x1="80" y1="320" x2="800" y2="320" stroke="rgba(13,13,13,0.1)" stroke-width="1"/>
+  <text x="80" y="520" font-family="Impact, sans-serif" font-size="148" font-weight="900" fill="#E8200A" letter-spacing="-4">don't miss</text>
+  <text x="80" y="680" font-family="Impact, sans-serif" font-size="148" font-weight="900" fill="#0d0d0d" letter-spacing="-4">this one.</text>
+  <text x="80" y="860" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(13,13,13,0.3)" letter-spacing="4">NOISE&amp;SIGNAL · REGISTER NOW</text>
+</svg>

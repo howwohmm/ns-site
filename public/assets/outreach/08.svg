@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#f2ede4"/>
+  <text x="80" y="300" font-family="Georgia, serif" font-size="28" font-style="italic" fill="rgba(13,13,13,0.3)">noise &amp; signal,</text>
+  <text x="80" y="500" font-family="Arial, sans-serif" font-size="108" font-weight="900" fill="#0d0d0d" letter-spacing="-3">register</text>
+  <text x="80" y="620" font-family="Arial, sans-serif" font-size="108" font-weight="900" fill="#0d0d0d" letter-spacing="-3">or regret it.</text>
+  <line x1="80" y1="700" x2="1000" y2="700" stroke="rgba(13,13,13,0.1)" stroke-width="1"/>
+  <text x="80" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(13,13,13,0.35)" letter-spacing="3">details drop 24hrs before.</text>
+  <text x="960" y="900" font-family="Georgia, serif" font-size="22" font-style="italic" fill="rgba(13,13,13,0.3)" text-anchor="end">ohm.</text>
+</svg>

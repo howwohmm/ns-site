@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#E8FF47"/>
+  <text x="540" y="500" font-family="Impact, sans-serif" font-size="200" font-weight="900" fill="#0d0d0d" text-anchor="middle" letter-spacing="-6">skip</text>
+  <text x="540" y="680" font-family="Impact, sans-serif" font-size="200" font-weight="900" fill="#E8200A" text-anchor="middle" letter-spacing="-6">class.</text>
+  <text x="540" y="780" font-family="Arial, sans-serif" font-size="28" font-weight="300" fill="rgba(13,13,13,0.4)" text-anchor="middle" letter-spacing="2">come to this instead.</text>
+  <text x="540" y="880" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="rgba(13,13,13,0.3)" text-anchor="middle" letter-spacing="6">NOISE&amp;SIGNAL</text>
+</svg>

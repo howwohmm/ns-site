@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#f2ede4"/>
+  <text x="80" y="260" font-family="Georgia, serif" font-size="28" font-style="italic" fill="rgba(13,13,13,0.25)">noise &amp; signal,</text>
+  <text x="80" y="440" font-family="Arial, sans-serif" font-size="80" font-weight="300" fill="#0d0d0d" letter-spacing="-2">built by</text>
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="80" font-weight="900" fill="#E8200A" letter-spacing="-2">second years.</text>
+  <text x="80" y="680" font-family="Arial, sans-serif" font-size="80" font-weight="300" fill="#0d0d0d" letter-spacing="-2">for everyone.</text>
+  <line x1="80" y1="760" x2="1000" y2="760" stroke="rgba(13,13,13,0.1)" stroke-width="1"/>
+  <text x="80" y="840" font-family="Arial, sans-serif" font-size="22" font-weight="300" fill="rgba(13,13,13,0.3)" letter-spacing="3">MnC · RUAS BENGALURU</text>
+</svg>

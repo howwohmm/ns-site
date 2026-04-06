@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>13 — noise&signal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Playfair+Display:ital,wght@1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background: #f2ede4;
+}
+
+.canvas {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #f2ede4;
+}
+
+/* Large background numeral — ghost */
+.ghost-num {
+  position: absolute;
+  top: -60px;
+  right: -40px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 480px;
+  color: rgba(13,13,13,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Top thin bar */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0d0d0d;
+}
+
+/* Main content */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 72px;
+  right: 72px;
+  transform: translateY(-50%);
+}
+
+/* "an hour" — small, featherweight */
+.phrase-small {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: rgba(13,13,13,0.35);
+  text-transform: lowercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* "that's" italic */
+.phrase-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 1.0;
+  color: rgba(13,13,13,0.4);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* "worth more than" medium */
+.phrase-med {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: rgba(13,13,13,0.65);
+  text-transform: lowercase;
+  display: block;
+}
+
+/* "a semester." massive bold black */
+.phrase-huge {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 0.88;
+  letter-spacing: -6px;
+  color: #0d0d0d;
+  text-transform: lowercase;
+  display: block;
+}
+
+/* Small red tally mark accent */
+.tally {
+  display: flex;
+  gap: 5px;
+  margin-top: 36px;
+  margin-bottom: 0;
+}
+
+.tally-line {
+  width: 3px;
+  height: 28px;
+  background: rgba(232,32,10,0.6);
+  border-radius: 1px;
+}
+
+.tally-line:nth-child(5) {
+  transform: rotate(-70deg);
+  transform-origin: bottom center;
+  margin-left: -1px;
+}
+
+/* Bottom */
+.bottom {
+  position: absolute;
+  bottom: 60px;
+  left: 72px;
+  right: 72px;
+  border-top: 1px solid rgba(13,13,13,0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(13,13,13,0.28);
+  text-transform: lowercase;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: rgba(13,13,13,0.28);
+  text-transform: lowercase;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top-bar"></div>
+  <div class="ghost-num">13</div>
+
+  <div class="content">
+    <span class="phrase-small">an hour</span>
+    <span class="phrase-italic">that's</span>
+    <span class="phrase-med">worth more than</span>
+    <span class="phrase-huge">a semester.</span>
+    <div class="tally">
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+      <div class="tally-line"></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <span class="label">noise&amp;signal · weekly · ruas</span>
+    <span class="brand">noise&amp;signal</span>
+  </div>
+</div>
+</body>
+</html>

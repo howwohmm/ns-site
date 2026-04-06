@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#12183a"/>
+  <text x="80" y="180" font-family="Arial, sans-serif" font-size="18" font-weight="300" fill="rgba(255,255,255,0.25)" letter-spacing="6">WEEKLY · RUAS BENGALURU</text>
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="96" font-weight="300" fill="#ffffff" letter-spacing="-2">ground</text>
+  <text x="80" y="540" font-family="Arial, sans-serif" font-size="96" font-weight="700" fill="#ffffff" letter-spacing="-2">reality.</text>
+  <line x1="80" y1="600" x2="600" y2="600" stroke="#E8200A" stroke-width="4"/>
+  <text x="80" y="720" font-family="Arial, sans-serif" font-size="38" font-weight="300" fill="rgba(255,255,255,0.5)" letter-spacing="-1">no slides. no theory. just</text>
+  <text x="80" y="780" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="rgba(255,255,255,0.8)" letter-spacing="-1">what's actually happening.</text>
+  <text x="80" y="920" font-family="Georgia, serif" font-size="22" font-style="italic" fill="rgba(232,32,10,0.6)">noise&amp;signal</text>
+</svg>

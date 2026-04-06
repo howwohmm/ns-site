@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>12 — noise&signal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background: #12183a;
+}
+
+.canvas {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #12183a;
+}
+
+/* Subtle grid background */
+.canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 90px 90px;
+  pointer-events: none;
+}
+
+/* Top info row — editorial style */
+.top-meta {
+  position: absolute;
+  top: 68px;
+  left: 72px;
+  right: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(242,237,228,0.1);
+  padding-bottom: 20px;
+}
+
+.meta-left {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: rgba(242,237,228,0.35);
+  text-transform: lowercase;
+}
+
+.meta-right {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: rgba(242,237,228,0.25);
+  text-transform: lowercase;
+}
+
+/* Main headline — bottom heavy layout */
+.headline-area {
+  position: absolute;
+  bottom: 160px;
+  left: 72px;
+  right: 72px;
+}
+
+.above-head {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  color: rgba(242,237,228,0.38);
+  display: block;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.headline {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: #f2ede4;
+  text-transform: lowercase;
+  display: block;
+}
+
+.headline .ai {
+  color: #E8FF47;
+}
+
+/* Body text — editorial */
+.body-text {
+  position: absolute;
+  top: 240px;
+  left: 72px;
+  right: 72px;
+}
+
+.body-line {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.65;
+  color: rgba(242,237,228,0.5);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+.body-line strong {
+  font-weight: 700;
+  color: rgba(242,237,228,0.75);
+}
+
+/* Rule between body and headline */
+.mid-rule {
+  position: absolute;
+  bottom: 268px;
+  left: 72px;
+  right: 72px;
+  height: 1px;
+  background: rgba(242,237,228,0.08);
+}
+
+/* Bottom row */
+.bottom-row {
+  position: absolute;
+  bottom: 68px;
+  left: 72px;
+  right: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(242,237,228,0.22);
+  text-transform: lowercase;
+}
+
+/* Issue marker */
+.issue {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(242,237,228,0.25);
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top-meta">
+    <span class="meta-left">noise&amp;signal — weekly dispatch</span>
+    <span class="meta-right">ruas · ai edition</span>
+  </div>
+
+  <div class="body-text">
+    <span class="body-line">what's happening in <strong>AI</strong> right now —</span>
+    <span class="body-line">explained by the people</span>
+    <span class="body-line">who are <strong>actually building it.</strong></span>
+    <br>
+    <span class="body-line">not professors. not journalists.</span>
+    <span class="body-line">second years with live projects.</span>
+  </div>
+
+  <div class="mid-rule"></div>
+
+  <div class="headline-area">
+    <span class="above-head">one hour, once a week</span>
+    <span class="headline">what's happening<br>in <span class="ai">AI</span>,<br>explained<br>by builders.</span>
+  </div>
+
+  <div class="bottom-row">
+    <span class="issue">weekly sessions</span>
+    <span class="brand">noise&amp;signal</span>
+  </div>
+</div>
+</body>
+</html>

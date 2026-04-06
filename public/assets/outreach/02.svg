@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#f2ede4"/>
+  <text x="80" y="460" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="300" fill="#0d0d0d" letter-spacing="-2">something is</text>
+  <text x="80" y="580" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="900" fill="#E8200A" letter-spacing="-2">happening</text>
+  <text x="80" y="700" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="300" fill="#0d0d0d" letter-spacing="-2">at RUAS.</text>
+  <line x1="80" y1="780" x2="520" y2="780" stroke="#0d0d0d" stroke-width="2" opacity="0.2"/>
+  <text x="80" y="830" font-family="Arial, sans-serif" font-size="20" font-weight="300" fill="rgba(13,13,13,0.4)" letter-spacing="4">noise&amp;signal · register now</text>
+</svg>

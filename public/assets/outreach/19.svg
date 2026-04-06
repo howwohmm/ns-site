@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#0d0d0d"/>
+  <text x="80" y="240" font-family="'Courier New', monospace" font-size="22" fill="rgba(255,255,255,0.2)" letter-spacing="1">// session_01.init</text>
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="76" font-weight="300" fill="rgba(255,255,255,0.5)" letter-spacing="-1">register.</text>
+  <text x="80" y="540" font-family="Arial, sans-serif" font-size="76" font-weight="700" fill="#f2ede4" letter-spacing="-1">details drop</text>
+  <text x="80" y="660" font-family="Arial, sans-serif" font-size="76" font-weight="700" fill="#E8200A" letter-spacing="-1">24hrs before.</text>
+  <text x="80" y="780" font-family="Arial, sans-serif" font-size="32" font-weight="300" fill="rgba(255,255,255,0.3)" letter-spacing="-1">we'll reach you then.</text>
+  <text x="80" y="940" font-family="Georgia, serif" font-size="22" font-style="italic" fill="rgba(232,32,10,0.5)">noise&amp;signal</text>
+</svg>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>07 — noise&signal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Playfair+Display:ital,wght@1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background: #12183a;
+}
+
+.canvas {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #12183a;
+}
+
+/* Star field — small dots */
+.star { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.s1 { width: 2px; height: 2px; top: 140px; left: 200px; }
+.s2 { width: 1px; height: 1px; top: 320px; left: 840px; }
+.s3 { width: 2px; height: 2px; top: 80px; right: 350px; }
+.s4 { width: 1px; height: 1px; top: 200px; left: 600px; }
+.s5 { width: 2px; height: 2px; bottom: 280px; right: 180px; }
+.s6 { width: 1px; height: 1px; bottom: 400px; left: 300px; }
+
+/* Thin horizontal guide lines */
+.guide-1 {
+  position: absolute;
+  top: 380px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+.guide-2 {
+  position: absolute;
+  top: 700px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* Center content — stacked with generous spacing */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 0 80px;
+}
+
+/* Each phrase with red dot separator */
+.phrase {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  font-size: 96px;
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  color: #f2ede4;
+  text-transform: lowercase;
+}
+
+.phrase-2 {
+  font-size: 88px;
+  letter-spacing: 0.1em;
+}
+
+.phrase-3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 72px;
+  letter-spacing: 0.05em;
+  color: rgba(242,237,228,0.7);
+}
+
+/* Red dot separator */
+.sep {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #E8200A;
+  margin: 28px auto;
+}
+
+/* Brand */
+.brand {
+  position: absolute;
+  bottom: 56px;
+  right: 72px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(242,237,228,0.22);
+  text-transform: lowercase;
+}
+
+/* Top arc — decorative */
+.arc {
+  position: absolute;
+  top: -400px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(242,237,228,0.04);
+}
+
+.arc-2 {
+  position: absolute;
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  border: 1px solid rgba(242,237,228,0.03);
+}
+
+/* Bottom left label */
+.corner-label {
+  position: absolute;
+  bottom: 56px;
+  left: 72px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  color: rgba(242,237,228,0.18);
+  text-transform: lowercase;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="star s1"></div>
+  <div class="star s2"></div>
+  <div class="star s3"></div>
+  <div class="star s4"></div>
+  <div class="star s5"></div>
+  <div class="star s6"></div>
+  <div class="arc"></div>
+  <div class="arc-2"></div>
+  <div class="guide-1"></div>
+  <div class="guide-2"></div>
+
+  <div class="content">
+    <span class="phrase">one hour</span>
+    <span class="sep"></span>
+    <span class="phrase phrase-2">this week</span>
+    <span class="sep"></span>
+    <span class="phrase phrase-3">ruas.</span>
+  </div>
+
+  <div class="corner-label">weekly sessions</div>
+  <div class="brand">noise&amp;signal</div>
+</div>
+</body>
+</html>

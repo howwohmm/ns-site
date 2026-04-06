@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#E8FF47"/>
+  <text x="80" y="340" font-family="Arial, sans-serif" font-size="52" font-weight="300" fill="rgba(13,13,13,0.5)" letter-spacing="-1">what are people</text>
+  <text x="80" y="430" font-family="Arial, sans-serif" font-size="52" font-weight="300" fill="rgba(13,13,13,0.5)" letter-spacing="-1">your age building</text>
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="108" font-weight="900" fill="#0d0d0d" letter-spacing="-3">with AI?</text>
+  <line x1="80" y1="640" x2="580" y2="640" stroke="rgba(13,13,13,0.2)" stroke-width="2"/>
+  <text x="80" y="720" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#E8200A" letter-spacing="-1">come find out. this week.</text>
+  <text x="80" y="900" font-family="Arial, sans-serif" font-size="18" font-weight="400" fill="rgba(13,13,13,0.3)" letter-spacing="5">NOISE&amp;SIGNAL</text>
+</svg>

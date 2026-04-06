@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>08 — noise&signal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Playfair+Display:ital,wght@1,700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.canvas {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Diagonal red glow */
+.glow {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232,32,10,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Center block */
+.center {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.line-1 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 148px;
+  line-height: 0.88;
+  letter-spacing: -6px;
+  color: #f2ede4;
+  text-transform: lowercase;
+  display: block;
+}
+
+.line-2 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 148px;
+  line-height: 0.88;
+  letter-spacing: -6px;
+  color: #f2ede4;
+  text-transform: lowercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* "regret it." in red */
+.line-3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 152px;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  color: #E8200A;
+  display: block;
+}
+
+/* Thin horizontal divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(242,237,228,0.1);
+  margin: 28px 0;
+}
+
+/* Brand */
+.brand {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(242,237,228,0.2);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+/* Top centered label */
+.top-label {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  color: rgba(242,237,228,0.2);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+/* Side lines */
+.side-rule-l {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 240px;
+  background: linear-gradient(180deg, transparent, rgba(242,237,228,0.12), transparent);
+}
+
+.side-rule-r {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 240px;
+  background: linear-gradient(180deg, transparent, rgba(242,237,228,0.12), transparent);
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="glow"></div>
+  <div class="top-label">noise&amp;signal</div>
+  <div class="side-rule-l"></div>
+  <div class="side-rule-r"></div>
+
+  <div class="center">
+    <span class="line-1">register</span>
+    <div class="divider"></div>
+    <span class="line-2">or</span>
+    <span class="line-3">regret it.</span>
+  </div>
+
+  <div class="brand">noise&amp;signal · weekly @ ruas</div>
+</div>
+</body>
+</html>

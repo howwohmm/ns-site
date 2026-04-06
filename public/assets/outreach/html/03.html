@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>03 — noise&signal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&family=Playfair+Display:ital,wght@1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.canvas {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+}
+
+/* Subtle scanline texture */
+.canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255,255,255,0.012) 3px,
+    rgba(255,255,255,0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Diagonal slash accent */
+.slash {
+  position: absolute;
+  top: 0;
+  right: 200px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(232,32,10,0.15) 30%,
+    rgba(232,32,10,0.08) 70%,
+    transparent 100%
+  );
+  transform: rotate(12deg);
+  transform-origin: top center;
+}
+
+/* Three lines */
+.lines {
+  position: absolute;
+  top: 50%;
+  left: 72px;
+  right: 72px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.line {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 110px;
+  line-height: 1.0;
+  letter-spacing: -4px;
+  text-transform: lowercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.line-1 {
+  color: rgba(242,237,228,0.18);
+}
+
+.line-2 {
+  color: rgba(242,237,228,0.5);
+}
+
+.line-3 {
+  color: #f2ede4;
+  font-size: 118px;
+  letter-spacing: -5px;
+}
+
+.line-3 em {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  color: #f2ede4;
+}
+
+/* Small dot marker between lines */
+.dot-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 32px;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(232,32,10,0.6);
+}
+
+.dot:first-child { background: #E8200A; }
+
+/* Brand */
+.brand {
+  position: absolute;
+  bottom: 60px;
+  right: 72px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(242,237,228,0.22);
+  text-transform: lowercase;
+  z-index: 1;
+}
+
+/* Top label */
+.top-label {
+  position: absolute;
+  top: 60px;
+  left: 72px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: rgba(242,237,228,0.2);
+  text-transform: lowercase;
+  z-index: 1;
+}
+
+/* Red bottom accent bar */
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #E8200A;
+  z-index: 1;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="slash"></div>
+  <div class="top-label">noise&amp;signal · weekly</div>
+
+  <div class="lines">
+    <span class="line line-1">not a lecture.</span>
+    <div class="dot-row">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <span class="line line-2">not a workshop.</span>
+    <div class="dot-row">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <span class="line line-3">just the <em>truth.</em></span>
+  </div>
+
+  <div class="brand">noise&amp;signal</div>
+  <div class="bottom-bar"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#12183a"/>
+  <text x="48" y="180" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="300" fill="rgba(255,255,255,0.35)" letter-spacing="6">WEEKLY DISPATCH</text>
+  <text x="48" y="290" font-family="Arial, Helvetica, sans-serif" font-size="102" font-weight="300" fill="#ffffff" letter-spacing="-4">noise</text>
+  <line x1="48" y1="308" x2="560" y2="308" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="48" y="410" font-family="Arial, Helvetica, sans-serif" font-size="102" font-weight="700" fill="#ffffff" letter-spacing="-4">&amp;signal</text>
+  <text x="48" y="480" font-family="Arial, sans-serif" font-size="13" font-weight="300" fill="rgba(255,255,255,0.3)" letter-spacing="3">BY OHM. · RUAS BENGALURU</text>
+</svg>

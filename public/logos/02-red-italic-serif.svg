@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#E8200A"/>
+  <text x="300" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" font-style="italic" fill="#f2ede4" text-anchor="middle" letter-spacing="-2">noise</text>
+  <text x="300" y="370" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" font-style="italic" fill="#f2ede4" text-anchor="middle" letter-spacing="-2">&amp;signal</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f5f0e8"/>
+  <!-- ruled lines -->
+  <line x1="0" y1="200" x2="600" y2="200" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <line x1="0" y1="280" x2="600" y2="280" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <line x1="0" y1="320" x2="600" y2="320" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <line x1="0" y1="360" x2="600" y2="360" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <line x1="0" y1="400" x2="600" y2="400" stroke="rgba(13,13,13,0.06)" stroke-width="1"/>
+  <text x="300" y="264" font-family="'Courier New', Courier, monospace" font-size="58" font-weight="700" fill="#1a1208" text-anchor="middle" letter-spacing="3">noise</text>
+  <text x="300" y="358" font-family="'Courier New', Courier, monospace" font-size="58" font-weight="700" fill="#1a1208" text-anchor="middle" letter-spacing="3">&amp;signal</text>
+</svg>

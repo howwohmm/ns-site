@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f2ede4"/>
+  <text x="300" y="228" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="700" fill="#0d0d0d" text-anchor="middle" letter-spacing="-4">noise</text>
+  <rect x="0" y="255" width="600" height="14" fill="#E8200A"/>
+  <text x="300" y="388" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="700" fill="#0d0d0d" text-anchor="middle" letter-spacing="-4">signal</text>
+  <text x="300" y="470" font-family="Arial, sans-serif" font-size="14" font-weight="300" fill="rgba(13,13,13,0.35)" text-anchor="middle" letter-spacing="5">AN EXPERIMENT BY OHM.</text>
+</svg>

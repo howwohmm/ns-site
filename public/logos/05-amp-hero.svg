@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#ffffff"/>
+  <text x="300" y="420" font-family="Georgia, serif" font-size="480" font-weight="700" font-style="italic" fill="#E8200A" fill-opacity="0.1" text-anchor="middle">&amp;</text>
+  <text x="300" y="255" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" fill="#0d0d0d" text-anchor="middle" letter-spacing="-3">noise</text>
+  <text x="300" y="360" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" fill="#0d0d0d" text-anchor="middle" letter-spacing="-3">signal</text>
+  <text x="300" y="420" font-family="Georgia, serif" font-size="24" font-style="italic" fill="#E8200A" text-anchor="middle">&amp;</text>
+</svg>

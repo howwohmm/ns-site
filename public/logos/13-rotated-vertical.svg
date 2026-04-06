@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#0d0d0d"/>
+  <text transform="translate(200,300) rotate(-90)" font-family="Impact, sans-serif" font-size="130" font-weight="900" fill="#f2ede4" text-anchor="middle" letter-spacing="-2">noise</text>
+  <line x1="218" y1="60" x2="218" y2="540" stroke="#E8200A" stroke-width="4"/>
+  <text transform="translate(380,300) rotate(-90)" font-family="Impact, sans-serif" font-size="130" font-weight="900" fill="#f2ede4" text-anchor="middle" letter-spacing="-2">signal</text>
+  <text x="300" y="555" font-family="'Courier New', monospace" font-size="13" fill="rgba(255,255,255,0.2)" text-anchor="middle" letter-spacing="4">&amp;</text>
+</svg>

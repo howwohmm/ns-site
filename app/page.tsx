@@ -170,7 +170,7 @@ export default function Home() {
                   color: "#f2ede4",
                   border: "none",
                   padding: "0 20px",
-                  height: "40px",
+                  height: "44px",
                   fontSize: "12px",
                   fontWeight: 600,
                   fontFamily: "var(--font-manrope), sans-serif",

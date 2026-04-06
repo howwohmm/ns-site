@@ -10,17 +10,19 @@ interface Props {
 }
 
 export default function RegisterFlow({ onClose, onSuccess }: Props) {
-  const [step, setStep] = useState<Step>("gate");
+  const notificationsSupported =
+    typeof window !== "undefined" &&
+    "Notification" in window &&
+    "serviceWorker" in navigator &&
+    Notification.permission !== "denied";
+
+  const [step, setStep] = useState<Step>(notificationsSupported && Notification.permission === "default" ? "gate" : "form");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [pushSub, setPushSub] = useState<PushSubscription | null>(null);
 
   async function requestPushPermission() {
-    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
-      setStep("form");
-      return;
-    }
     const permission = await Notification.requestPermission();
     if (permission === "granted") {
       try {
@@ -179,6 +181,13 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
                 turn on notifications →
+              </button>
+
+              <button
+                onClick={() => setStep("form")}
+                style={{ background: "none", border: "none", color: "rgba(13,13,13,0.35)", fontSize: "12px", fontFamily: "var(--font-manrope), sans-serif", cursor: "pointer", padding: 0, textDecoration: "underline", textUnderlineOffset: "3px" }}
+              >
+                skip, just use email
               </button>
 
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>

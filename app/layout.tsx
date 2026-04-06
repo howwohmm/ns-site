@@ -21,10 +21,12 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "noise&signal",
   description: "something is happening at RUAS. this week.",
+  icons: { icon: "/logos/08-outlined-red.svg" },
   openGraph: {
     title: "noise&signal",
     description: "something is happening at RUAS. this week.",
     type: "website",
+    images: [{ url: "/logos/08-outlined-red.png", width: 600, height: 600 }],
   },
 };
 

@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* ── PAGE: LIME BACKGROUND ── */}
       <div style={{
-        background: "#E8FF47",
+        background: "#E8200A",
         minHeight: "100svh",
         display: "flex",
         alignItems: "center",

@@ -56,179 +56,236 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
   }
 
   return (
-    <div
-      onClick={e => e.target === e.currentTarget && onClose()}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0,0,0,0.6)",
-        backdropFilter: "blur(8px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "20px",
-        zIndex: 9999,
-      }}
-    >
+    <>
+      <style>{`
+        @keyframes grain2 {
+          0%, 100% { transform: translate(0, 0) }
+          10%  { transform: translate(-4%, -5%) }
+          30%  { transform: translate( 4%, -8%) }
+          60%  { transform: translate(12%,  0%) }
+          80%  { transform: translate(-12%, 0%) }
+        }
+        .modal-paper { position: relative; overflow: hidden; }
+        .modal-paper::after {
+          content: '';
+          position: absolute;
+          inset: -100%;
+          width: 300%;
+          height: 300%;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          opacity: 0.08;
+          pointer-events: none;
+          z-index: 1;
+          animation: grain2 0.4s steps(2) infinite;
+        }
+        .modal-paper > * { position: relative; z-index: 2; }
+        .modal-input::placeholder { color: rgba(13,13,13,0.3); }
+        .modal-input:focus { outline: none; border-color: rgba(13,13,13,0.4); }
+      `}</style>
+
+      {/* backdrop */}
       <div
+        onClick={e => e.target === e.currentTarget && onClose()}
         style={{
-          background: "#161616",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "12px",
-          padding: "32px",
-          width: "100%",
-          maxWidth: "380px",
-          position: "relative",
-          boxShadow: "0 16px 64px rgba(0,0,0,0.5)",
-          fontFamily: "var(--font-manrope), sans-serif",
+          position: "fixed",
+          inset: 0,
+          background: "rgba(232,32,10,0.75)",
+          backdropFilter: "blur(2px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+          zIndex: 9999,
         }}
       >
-        {/* close */}
-        <button
-          onClick={onClose}
+        {/* card — same cream paper as the main letter */}
+        <div
+          className="modal-paper"
           style={{
-            position: "absolute",
-            top: "14px",
-            right: "14px",
-            background: "none",
-            border: "none",
-            color: "rgba(255,255,255,0.2)",
-            fontSize: "16px",
-            lineHeight: 1,
-            cursor: "pointer",
-            padding: "4px 6px",
-            borderRadius: "4px",
-            transition: "color 0.15s, background 0.15s",
+            background: "#f2ede4",
+            width: "100%",
+            maxWidth: "440px",
+            padding: "36px 36px 32px",
+            position: "relative",
             fontFamily: "var(--font-manrope), sans-serif",
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
-          onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.2)"; e.currentTarget.style.background = "none"; }}
         >
-          ✕
-        </button>
+          {/* close */}
+          <button
+            onClick={onClose}
+            style={{
+              position: "absolute",
+              top: "16px",
+              right: "18px",
+              background: "none",
+              border: "none",
+              color: "rgba(13,13,13,0.25)",
+              fontSize: "16px",
+              cursor: "pointer",
+              padding: "4px",
+              lineHeight: 1,
+              transition: "color 0.15s",
+              fontFamily: "var(--font-manrope), sans-serif",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = "rgba(13,13,13,0.7)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "rgba(13,13,13,0.25)")}
+          >
+            ✕
+          </button>
 
-        {/* ── gate step ── */}
-        {step === "gate" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <div>
-              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#E8FF47", marginBottom: "12px" }}>
-                noise&signal
-              </p>
-              <h2 style={{ fontSize: "20px", fontWeight: 600, color: "#fafafa", lineHeight: 1.3, marginBottom: "8px" }}>
-                get notified when details drop
-              </h2>
-              <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>
-                we'll ping you 24hrs, 2hrs, and 20 minutes before it starts.
-              </p>
+          {/* ── gate ── */}
+          {step === "gate" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-playfair), serif",
+                  fontSize: "15px",
+                  fontStyle: "italic",
+                  color: "#0d0d0d",
+                  marginBottom: "12px",
+                }}>
+                  noise &amp; signal,
+                </p>
+                <h2 style={{
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.025em",
+                  color: "#0d0d0d",
+                  marginBottom: "8px",
+                }}>
+                  we'll ping you when details drop.
+                </h2>
+                <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(13,13,13,0.5)", lineHeight: 1.65 }}>
+                  24hrs before, 2hrs, and 20 minutes. turn on notifications so we reach you instantly.
+                </p>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <button
+                  onClick={requestPushPermission}
+                  style={btnDark}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                >
+                  turn on notifications →
+                </button>
+                <button
+                  onClick={() => setStep("form")}
+                  style={btnGhost}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(13,13,13,0.3)")}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(13,13,13,0.12)")}
+                >
+                  skip — email only
+                </button>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{ flex: 1, height: "1px", background: "rgba(13,13,13,0.15)" }} />
+                <p style={{
+                  fontFamily: "var(--font-playfair), serif",
+                  fontSize: "14px",
+                  fontStyle: "italic",
+                  color: "rgba(13,13,13,0.4)",
+                }}>ohm.</p>
+              </div>
             </div>
+          )}
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {/* ── form ── */}
+          {step === "form" && (
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-playfair), serif",
+                  fontSize: "15px",
+                  fontStyle: "italic",
+                  color: "#0d0d0d",
+                  marginBottom: "12px",
+                }}>
+                  noise &amp; signal,
+                </p>
+                <h2 style={{
+                  fontSize: "26px",
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.025em",
+                  color: "#0d0d0d",
+                }}>
+                  {pushSub ? "notifications on. who are you?" : "we'll reach you by email."}
+                </h2>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <input
+                  className="modal-input"
+                  type="text"
+                  placeholder="your name"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  required
+                  style={inputStyle}
+                />
+                <input
+                  className="modal-input"
+                  type="email"
+                  placeholder="college email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  style={inputStyle}
+                />
+              </div>
+
+              {error && <p style={{ fontSize: "12px", color: "#cc2200", fontWeight: 400 }}>{error}</p>}
+
               <button
-                onClick={requestPushPermission}
-                style={btnPrimary}
-                onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+                type="submit"
+                style={btnDark}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
                 onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
-                turn on notifications →
+                i'm in →
               </button>
-              <button
-                onClick={() => setStep("form")}
-                style={{
-                  background: "transparent",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: "rgba(255,255,255,0.35)",
-                  height: "40px",
-                  fontSize: "12px",
-                  fontWeight: 400,
-                  fontFamily: "var(--font-manrope), sans-serif",
-                  cursor: "pointer",
-                  borderRadius: "6px",
-                  transition: "border-color 0.15s, color 0.15s",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.35)"; }}
-              >
-                skip — email only
-              </button>
-            </div>
-          </div>
-        )}
 
-        {/* ── form step ── */}
-        {step === "form" && (
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div>
-              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#E8FF47", marginBottom: "12px" }}>
-                noise&signal
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{ flex: 1, height: "1px", background: "rgba(13,13,13,0.15)" }} />
+                <p style={{
+                  fontFamily: "var(--font-playfair), serif",
+                  fontSize: "14px",
+                  fontStyle: "italic",
+                  color: "rgba(13,13,13,0.4)",
+                }}>ohm.</p>
+              </div>
+            </form>
+          )}
+
+          {/* ── loading ── */}
+          {step === "loading" && (
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "16px 0 8px" }}>
+              <div style={{
+                width: "22px",
+                height: "22px",
+                border: "2px solid rgba(13,13,13,0.1)",
+                borderTop: "2px solid #0d0d0d",
+                borderRadius: "50%",
+                animation: "spin 0.7s linear infinite",
+              }} />
+              <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(13,13,13,0.45)" }}>
+                locking you in...
               </p>
-              <h2 style={{ fontSize: "20px", fontWeight: 600, color: "#fafafa", lineHeight: 1.3 }}>
-                {pushSub ? "notifications on. who are you?" : "we'll reach you by email."}
-              </h2>
+              <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
             </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              <input
-                type="text"
-                placeholder="your name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-                style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = "rgba(232,255,71,0.5)"; e.target.style.boxShadow = "0 0 0 3px rgba(232,255,71,0.08)"; }}
-                onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
-              />
-              <input
-                type="email"
-                placeholder="college email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = "rgba(232,255,71,0.5)"; e.target.style.boxShadow = "0 0 0 3px rgba(232,255,71,0.08)"; }}
-                onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
-              />
-            </div>
-
-            {error && (
-              <p style={{ fontSize: "12px", color: "#f87171", fontWeight: 300 }}>{error}</p>
-            )}
-
-            <button
-              type="submit"
-              style={btnPrimary}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            >
-              i'm in →
-            </button>
-          </form>
-        )}
-
-        {/* ── loading ── */}
-        {step === "loading" && (
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "20px 0" }}>
-            <div style={{
-              width: "24px",
-              height: "24px",
-              border: "2px solid rgba(255,255,255,0.06)",
-              borderTop: "2px solid #E8FF47",
-              borderRadius: "50%",
-              animation: "spin 0.7s linear infinite",
-            }} />
-            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px", fontWeight: 300 }}>
-              locking you in...
-            </p>
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-const btnPrimary: React.CSSProperties = {
-  background: "#E8FF47",
-  color: "#0f0f0f",
+const btnDark: React.CSSProperties = {
+  background: "#0d0d0d",
+  color: "#f2ede4",
   border: "none",
   height: "42px",
   padding: "0 20px",
@@ -236,22 +293,36 @@ const btnPrimary: React.CSSProperties = {
   fontWeight: 600,
   fontFamily: "var(--font-manrope), sans-serif",
   cursor: "pointer",
-  borderRadius: "6px",
+  borderRadius: "4px",
   transition: "opacity 0.15s",
   width: "100%",
 };
 
+const btnGhost: React.CSSProperties = {
+  background: "transparent",
+  color: "rgba(13,13,13,0.5)",
+  border: "1px solid rgba(13,13,13,0.12)",
+  height: "40px",
+  padding: "0 20px",
+  fontSize: "13px",
+  fontWeight: 400,
+  fontFamily: "var(--font-manrope), sans-serif",
+  cursor: "pointer",
+  borderRadius: "4px",
+  transition: "border-color 0.15s",
+  width: "100%",
+};
+
 const inputStyle: React.CSSProperties = {
-  background: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(255,255,255,0.1)",
-  color: "#fafafa",
+  background: "rgba(13,13,13,0.05)",
+  border: "1px solid rgba(13,13,13,0.12)",
+  color: "#0d0d0d",
   height: "40px",
   padding: "0 12px",
   fontSize: "14px",
   fontFamily: "var(--font-manrope), sans-serif",
   fontWeight: 300,
-  outline: "none",
   width: "100%",
-  borderRadius: "6px",
-  transition: "border-color 0.15s, box-shadow 0.15s",
+  borderRadius: "4px",
+  transition: "border-color 0.15s",
 };

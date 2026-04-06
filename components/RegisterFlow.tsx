@@ -83,19 +83,19 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0,0,0,0.85)",
+        background: "rgba(8,8,8,0.92)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         padding: "24px",
         zIndex: 100,
-        backdropFilter: "blur(4px)",
+        backdropFilter: "blur(8px)",
       }}
     >
       <div style={{
-        background: "#1f1f1f",
-        border: "1px solid #2a2a2a",
-        padding: "40px 32px",
+        background: "#0f0f0f",
+        border: "1px solid #1e1e1e",
+        padding: "40px 36px",
         width: "100%",
         maxWidth: "420px",
         display: "flex",
@@ -183,8 +183,8 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 onChange={e => setName(e.target.value)}
                 required
                 style={{
-                  background: "#141414",
-                  border: "1px solid #2a2a2a",
+                  background: "#080808",
+                  border: "1px solid #1e1e1e",
                   color: "#f0f0f0",
                   padding: "13px 16px",
                   fontSize: "14px",
@@ -203,8 +203,8 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 onChange={e => setEmail(e.target.value)}
                 required
                 style={{
-                  background: "#141414",
-                  border: "1px solid #2a2a2a",
+                  background: "#080808",
+                  border: "1px solid #1e1e1e",
                   color: "#f0f0f0",
                   padding: "13px 16px",
                   fontSize: "14px",
@@ -251,7 +251,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
             <div style={{
               width: "32px",
               height: "32px",
-              border: "2px solid #2a2a2a",
+              border: "2px solid #1e1e1e",
               borderTop: "2px solid #E8FF47",
               borderRadius: "50%",
               animation: "spin 0.8s linear infinite",

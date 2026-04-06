@@ -65,6 +65,16 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
           60%  { transform: translate(12%,  0%) }
           80%  { transform: translate(-12%, 0%) }
         }
+        @keyframes modalUp {
+          from { opacity: 0; transform: translateY(16px) scale(0.98); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes backdropIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .modal-backdrop { animation: backdropIn 0.2s ease both; }
+        .modal-card { animation: modalUp 0.35s cubic-bezier(0.16,1,0.3,1) both; }
         .modal-paper { position: relative; overflow: hidden; }
         .modal-paper::after {
           content: '';
@@ -85,6 +95,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
 
       {/* backdrop */}
       <div
+        className="modal-backdrop"
         onClick={e => e.target === e.currentTarget && onClose()}
         style={{
           position: "fixed",
@@ -100,7 +111,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
       >
         {/* card — same cream paper as the main letter */}
         <div
-          className="modal-paper"
+          className="modal-paper modal-card"
           style={{
             background: "#f2ede4",
             width: "100%",

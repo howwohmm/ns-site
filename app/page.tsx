@@ -22,6 +22,29 @@ export default function Home() {
           80%  { transform: translate(-12%, 0%) }
           90%  { transform: translate( 8%,  4%) }
         }
+        @keyframes cardIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .card-enter {
+          animation: cardIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        .salutation-enter {
+          animation: fadeIn 0.4s ease both;
+          animation-delay: 0.15s;
+        }
+        .body-enter {
+          animation: fadeIn 0.5s ease both;
+          animation-delay: 0.25s;
+        }
+        .footer-enter {
+          animation: fadeIn 0.4s ease both;
+          animation-delay: 0.4s;
+        }
         .paper {
           position: relative;
           overflow: hidden;
@@ -54,7 +77,7 @@ export default function Home() {
 
         {/* ── CARD: CREAM PAPER ── */}
         <div
-          className="paper"
+          className="paper card-enter"
           style={{
             background: "#f2ede4",
             width: "100%",
@@ -64,7 +87,7 @@ export default function Home() {
         >
 
           {/* salutation */}
-          <p style={{
+          <p className="salutation-enter" style={{
             fontFamily: "var(--font-playfair), serif",
             fontSize: "clamp(14px, 1.6vw, 18px)",
             fontStyle: "italic",
@@ -76,7 +99,7 @@ export default function Home() {
           </p>
 
           {/* body — fills the card */}
-          <p style={{
+          <p className="body-enter" style={{
             fontSize: "clamp(26px, 3.8vw, 48px)",
             fontWeight: 700,
             lineHeight: 1.12,
@@ -90,7 +113,7 @@ export default function Home() {
           </p>
 
           {/* divider + closing */}
-          <div style={{
+          <div className="footer-enter" style={{
             display: "flex",
             alignItems: "center",
             gap: "16px",
@@ -110,7 +133,7 @@ export default function Home() {
           </div>
 
           {/* bottom: CTA + credit */}
-          <div style={{
+          <div className="footer-enter" style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",

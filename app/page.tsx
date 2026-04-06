@@ -131,7 +131,7 @@ export default function Home() {
           }}>
             {registered
               ? "you're in. details drop 24hrs before. check your email — we'll tell you exactly when and where."
-              : "something is happening at RUAS this week. it's not on the notice board. your professor doesn't know about it. it's an hour of the ground reality — what's being built, what's breaking, and what people your age are building with AI tools right now."}
+              : "something is happening at RUAS this week. your professor doesn't know about it. it's an hour of the ground reality — what's being built, what's breaking, and what people your age are building with AI tools right now."}
           </p>
 
           {/* divider + closing */}
@@ -150,7 +150,7 @@ export default function Home() {
               color: "#0d0d0d",
               whiteSpace: "nowrap",
             }}>
-              {registered ? "see you there," : "15 from your class already know,"}
+              {registered ? "see you there," : "find out before everyone else does,"}
             </p>
           </div>
 

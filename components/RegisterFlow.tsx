@@ -168,28 +168,18 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                   we'll ping you when details drop.
                 </h2>
                 <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(13,13,13,0.5)", lineHeight: 1.65 }}>
-                  24hrs before, 2hrs, and 20 minutes. turn on notifications so we reach you instantly.
+                  we'll ping you 24hrs before, 2hrs before, and 20 minutes before it starts. don't miss it.
                 </p>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                <button
-                  onClick={requestPushPermission}
-                  style={btnDark}
-                  onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
-                  onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-                >
-                  turn on notifications →
-                </button>
-                <button
-                  onClick={() => setStep("form")}
-                  style={btnGhost}
-                  onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(13,13,13,0.3)")}
-                  onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(13,13,13,0.12)")}
-                >
-                  skip — email only
-                </button>
-              </div>
+              <button
+                onClick={requestPushPermission}
+                style={btnDark}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+              >
+                turn on notifications →
+              </button>
 
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <div style={{ flex: 1, height: "1px", background: "rgba(13,13,13,0.15)" }} />

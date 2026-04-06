@@ -240,7 +240,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 <input
                   className="modal-input"
                   type="email"
-                  placeholder="college email"
+                  placeholder="your email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required

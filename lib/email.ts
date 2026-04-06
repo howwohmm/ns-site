@@ -15,30 +15,22 @@ export async function sendConfirmationEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "ohm. <noreply@noiseandsignal.in>",
+    from: "noise&signal <noreply@noiseandsignal.in>",
     to: email,
-    subject: "you're in. details drop soon.",
+    subject: "you're in.",
     html: `
-      <div style="background:#1a1a1a;color:#f0f0f0;padding:48px 32px;font-family:sans-serif;max-width:480px;margin:0 auto;">
-        <div style="font-size:32px;font-weight:700;color:#E8FF47;margin-bottom:32px;">Ω</div>
-        <p style="font-size:15px;font-weight:300;line-height:1.8;color:#d0d0d0;margin-bottom:24px;">
-          hey ${name},<br/><br/>
-          you're registered for noise&signal.<br/>
-          details drop 24hrs before. watch for the ping.
-        </p>
-        <div style="border:1px solid #2a2a2a;padding:20px;margin-bottom:24px;">
-          <p style="font-size:13px;color:#8a8a8a;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;">meanwhile</p>
-          <p style="font-size:14px;font-weight:300;line-height:1.7;color:#d0d0d0;margin-bottom:16px;">
-            join the whatsapp group to stay in the loop with the community.
+      <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
+        <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise &amp; signal,</p>
+          <p style="font-size:28px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0d0d0d;margin:0 0 28px;">
+            you're in, ${name}. details drop 24hrs before. we'll reach you then.
           </p>
-          <a href="${whatsappLink}" style="background:#E8FF47;color:#1a1a1a;padding:12px 24px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block;">
-            join noise&signal →
-          </a>
+          <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
+          <table width="100%" style="border-collapse:collapse;"><tr>
+            <td><a href="${whatsappLink}" style="background:#0d0d0d;color:#f2ede4;padding:10px 18px;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;display:inline-block;">join the group →</a></td>
+            <td align="right"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</span></td>
+          </tr></table>
         </div>
-        <p style="font-size:12px;color:#555;line-height:1.6;">
-          — ohm. · x.com/ohmdreams<br/>
-          ruas, cse
-        </p>
       </div>
     `,
   });
@@ -57,19 +49,20 @@ export async function sendReminderEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "ohm. <noreply@noiseandsignal.in>",
+    from: "noise&signal <noreply@noiseandsignal.in>",
     to: email,
     subject,
     html: `
-      <div style="background:#1a1a1a;color:#f0f0f0;padding:48px 32px;font-family:sans-serif;max-width:480px;margin:0 auto;">
-        <div style="font-size:32px;font-weight:700;color:#E8FF47;margin-bottom:32px;">Ω</div>
-        <p style="font-size:15px;font-weight:300;line-height:1.8;color:#d0d0d0;margin-bottom:24px;">
-          ${body}
-        </p>
-        <a href="${sessionUrl}" style="background:#E8FF47;color:#1a1a1a;padding:12px 24px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block;margin-bottom:32px;">
-          see details →
-        </a>
-        <p style="font-size:12px;color:#555;">— ohm. · noise&signal</p>
+      <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
+        <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise &amp; signal,</p>
+          <p style="font-size:26px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0d0d0d;margin:0 0 24px;">${body}</p>
+          <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
+          <table width="100%" style="border-collapse:collapse;"><tr>
+            <td><a href="${sessionUrl}" style="background:#0d0d0d;color:#f2ede4;padding:10px 18px;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;display:inline-block;">see details →</a></td>
+            <td align="right"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</span></td>
+          </tr></table>
+        </div>
       </div>
     `,
   });

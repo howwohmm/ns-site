@@ -15,9 +15,9 @@ export async function sendConfirmationEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "noise&signal <onboarding@resend.dev>",
+    from: "noise&signal by ohm. <onboarding@resend.dev>",
     to: email,
-    subject: "you're in.",
+    subject: "welcome, join the GC.",
     html: `
       <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
         <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
@@ -49,7 +49,7 @@ export async function sendReminderEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "noise&signal <onboarding@resend.dev>",
+    from: "noise&signal by ohm. <onboarding@resend.dev>",
     to: email,
     subject,
     html: `

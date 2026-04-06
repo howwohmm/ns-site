@@ -2,12 +2,11 @@
   <rect width="400" height="400" fill="#E8200A"/>
   <text
     x="200"
-    y="244"
+    y="268"
     font-family="Arial, Helvetica, sans-serif"
-    font-size="136"
+    font-size="220"
     font-weight="700"
     fill="#f2ede4"
     text-anchor="middle"
-    letter-spacing="-4"
-  >n&amp;s</text>
+  >s</text>
 </svg>

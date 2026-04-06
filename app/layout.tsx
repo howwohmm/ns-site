@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Manrope, Geist, Playfair_Display } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -36,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("h-full", manrope.variable, playfair.variable, "font-sans", geist.variable)}>
+    <html lang="en" className={cn("h-full", manrope.variable, playfair.variable, "font-sans")}>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-manrope), sans-serif" }}

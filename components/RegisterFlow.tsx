@@ -56,33 +56,31 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
   }
 
   return (
-    /* backdrop */
     <div
       onClick={e => e.target === e.currentTarget && onClose()}
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(9,9,11,0.88)",
-        backdropFilter: "blur(12px)",
+        background: "rgba(0,0,0,0.6)",
+        backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "24px",
+        padding: "20px",
         zIndex: 9999,
       }}
     >
-      {/* card — shadcn card language on dark */}
       <div
-        className="modal-enter"
         style={{
-          background: "#09090b",
+          background: "#161616",
           border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "0",
-          padding: "clamp(28px,5vw,44px) clamp(24px,4vw,40px)",
+          borderRadius: "12px",
+          padding: "32px",
           width: "100%",
-          maxWidth: "400px",
+          maxWidth: "380px",
           position: "relative",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+          boxShadow: "0 16px 64px rgba(0,0,0,0.5)",
+          fontFamily: "var(--font-manrope), sans-serif",
         }}
       >
         {/* close */}
@@ -90,68 +88,69 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
           onClick={onClose}
           style={{
             position: "absolute",
-            top: "16px",
-            right: "18px",
+            top: "14px",
+            right: "14px",
             background: "none",
             border: "none",
-            color: "rgba(255,255,255,0.25)",
-            fontSize: "18px",
+            color: "rgba(255,255,255,0.2)",
+            fontSize: "16px",
             lineHeight: 1,
             cursor: "pointer",
-            padding: "4px",
-            transition: "color 0.15s",
-            fontFamily: "'Manrope', sans-serif",
+            padding: "4px 6px",
+            borderRadius: "4px",
+            transition: "color 0.15s, background 0.15s",
+            fontFamily: "var(--font-manrope), sans-serif",
           }}
-          onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
-          onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.25)")}
+          onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.6)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.2)"; e.currentTarget.style.background = "none"; }}
         >
           ✕
         </button>
 
-        {/* omega */}
-        <div style={{
-          fontFamily: "var(--font-playfair), serif",
-          fontSize: "36px",
-          fontWeight: 900,
-          color: "#E8FF47",
-          lineHeight: 1,
-          marginBottom: "24px",
-        }}>
-          Ω
-        </div>
-
         {/* ── gate step ── */}
         {step === "gate" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             <div>
-              <h2 style={{
-                fontFamily: "var(--font-playfair), serif",
-                fontSize: "clamp(18px,3vw,22px)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                color: "#fafafa",
-                lineHeight: 1.35,
-                marginBottom: "10px",
-              }}>
-                we'll ping you when details drop.
+              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#E8FF47", marginBottom: "12px" }}>
+                noise&signal
+              </p>
+              <h2 style={{ fontSize: "20px", fontWeight: 600, color: "#fafafa", lineHeight: 1.3, marginBottom: "8px" }}>
+                get notified when details drop
               </h2>
-              <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(255,255,255,0.35)", lineHeight: 1.75 }}>
-                turn on notifications so we can reach you instantly — 24hrs before, 10hrs, 2hrs, and 20 minutes before it starts.
+              <p style={{ fontSize: "13px", fontWeight: 300, color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>
+                we'll ping you 24hrs, 2hrs, and 20 minutes before it starts.
               </p>
             </div>
 
-            <button
-              onClick={requestPushPermission}
-              style={btnPrimary}
-              onMouseEnter={e => (e.currentTarget.style.background = "#d4e83c")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#E8FF47")}
-            >
-              turn on notifications →
-            </button>
-
-            <p style={{ fontSize: "11px", fontWeight: 300, color: "rgba(255,255,255,0.2)", textAlign: "center", letterSpacing: "0.02em" }}>
-              skip this and you'll only get email reminders
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <button
+                onClick={requestPushPermission}
+                style={btnPrimary}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+              >
+                turn on notifications →
+              </button>
+              <button
+                onClick={() => setStep("form")}
+                style={{
+                  background: "transparent",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  color: "rgba(255,255,255,0.35)",
+                  height: "40px",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                  fontFamily: "var(--font-manrope), sans-serif",
+                  cursor: "pointer",
+                  borderRadius: "6px",
+                  transition: "border-color 0.15s, color 0.15s",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.35)"; }}
+              >
+                skip — email only
+              </button>
+            </div>
           </div>
         )}
 
@@ -159,21 +158,15 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
         {step === "form" && (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <div>
-              <h2 style={{
-                fontFamily: "var(--font-playfair), serif",
-                fontSize: "clamp(18px,3vw,22px)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                color: "#fafafa",
-                lineHeight: 1.35,
-                marginBottom: "6px",
-              }}>
-                {pushSub ? "you're set. now tell us who you are." : "we'll reach you by email."}
+              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#E8FF47", marginBottom: "12px" }}>
+                noise&signal
+              </p>
+              <h2 style={{ fontSize: "20px", fontWeight: 600, color: "#fafafa", lineHeight: 1.3 }}>
+                {pushSub ? "notifications on. who are you?" : "we'll reach you by email."}
               </h2>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-              {/* shadcn-spec input */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               <input
                 type="text"
                 placeholder="your name"
@@ -181,7 +174,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 onChange={e => setName(e.target.value)}
                 required
                 style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = "#E8FF47"; e.target.style.boxShadow = "0 0 0 2px rgba(232,255,71,0.12)"; }}
+                onFocus={e => { e.target.style.borderColor = "rgba(232,255,71,0.5)"; e.target.style.boxShadow = "0 0 0 3px rgba(232,255,71,0.08)"; }}
                 onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
               />
               <input
@@ -191,7 +184,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 onChange={e => setEmail(e.target.value)}
                 required
                 style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = "#E8FF47"; e.target.style.boxShadow = "0 0 0 2px rgba(232,255,71,0.12)"; }}
+                onFocus={e => { e.target.style.borderColor = "rgba(232,255,71,0.5)"; e.target.style.boxShadow = "0 0 0 3px rgba(232,255,71,0.08)"; }}
                 onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
               />
             </div>
@@ -203,8 +196,8 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
             <button
               type="submit"
               style={btnPrimary}
-              onMouseEnter={e => (e.currentTarget.style.background = "#d4e83c")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#E8FF47")}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
               i'm in →
             </button>
@@ -213,42 +206,38 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
 
         {/* ── loading ── */}
         {step === "loading" && (
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "18px", padding: "24px 0" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "20px 0" }}>
             <div style={{
-              width: "28px",
-              height: "28px",
-              border: "2px solid rgba(255,255,255,0.08)",
+              width: "24px",
+              height: "24px",
+              border: "2px solid rgba(255,255,255,0.06)",
               borderTop: "2px solid #E8FF47",
               borderRadius: "50%",
-              animation: "spin 0.75s linear infinite",
+              animation: "spin 0.7s linear infinite",
             }} />
-            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", fontWeight: 300, letterSpacing: "0.06em" }}>
+            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px", fontWeight: 300 }}>
               locking you in...
             </p>
             <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
           </div>
         )}
-
       </div>
     </div>
   );
 }
 
-/* ── shared styles ── */
 const btnPrimary: React.CSSProperties = {
   background: "#E8FF47",
-  color: "#09090b",
+  color: "#0f0f0f",
   border: "none",
-  height: "44px",
-  padding: "0 24px",
-  fontSize: "12px",
-  fontWeight: 700,
-  fontFamily: "'Manrope', sans-serif",
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
+  height: "42px",
+  padding: "0 20px",
+  fontSize: "13px",
+  fontWeight: 600,
+  fontFamily: "var(--font-manrope), sans-serif",
   cursor: "pointer",
-  borderRadius: "0",
-  transition: "background 0.15s ease",
+  borderRadius: "6px",
+  transition: "opacity 0.15s",
   width: "100%",
 };
 
@@ -256,13 +245,13 @@ const inputStyle: React.CSSProperties = {
   background: "rgba(255,255,255,0.04)",
   border: "1px solid rgba(255,255,255,0.1)",
   color: "#fafafa",
-  height: "42px",
-  padding: "0 14px",
+  height: "40px",
+  padding: "0 12px",
   fontSize: "14px",
-  fontFamily: "'Manrope', sans-serif",
+  fontFamily: "var(--font-manrope), sans-serif",
   fontWeight: 300,
   outline: "none",
   width: "100%",
-  borderRadius: "0",
+  borderRadius: "6px",
   transition: "border-color 0.15s, box-shadow 0.15s",
 };

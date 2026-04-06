@@ -15,7 +15,7 @@ export async function sendConfirmationEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "noise&signal <noreply@noiseandsignal.in>",
+    from: "noise&signal <onboarding@resend.dev>",
     to: email,
     subject: "you're in.",
     html: `
@@ -23,7 +23,7 @@ export async function sendConfirmationEmail({
         <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
           <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise &amp; signal,</p>
           <p style="font-size:28px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0d0d0d;margin:0 0 28px;">
-            you're in, ${name}. details drop 24hrs before. we'll reach you then.
+            you're in, ${name}. details drop 24hrs before. we'll reach you then. an experiment by second year MnC students — your weekly dose of the AI saga.
           </p>
           <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
           <table width="100%" style="border-collapse:collapse;"><tr>
@@ -49,7 +49,7 @@ export async function sendReminderEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "noise&signal <noreply@noiseandsignal.in>",
+    from: "noise&signal <onboarding@resend.dev>",
     to: email,
     subject,
     html: `

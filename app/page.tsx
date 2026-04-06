@@ -3,6 +3,28 @@
 import { useState } from "react";
 import RegisterFlow from "@/components/RegisterFlow";
 
+function OhmName() {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <p
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onTouchStart={() => setHovered(v => !v)}
+      style={{
+        fontFamily: "var(--font-playfair), serif",
+        fontSize: "clamp(14px, 1.6vw, 18px)",
+        fontStyle: "italic",
+        color: "#0d0d0d",
+        marginBottom: "2px",
+        cursor: "default",
+        transition: "opacity 0.2s",
+      }}
+    >
+      {hovered ? "Om Mishra." : "ohm."}
+    </p>
+  );
+}
+
 export default function Home() {
   const [flowOpen, setFlowOpen] = useState(false);
   const [registered, setRegistered] = useState(false);
@@ -172,15 +194,7 @@ export default function Home() {
             )}
 
             <div style={{ textAlign: "right" }}>
-              <p style={{
-                fontFamily: "var(--font-playfair), serif",
-                fontSize: "clamp(14px, 1.6vw, 18px)",
-                fontStyle: "italic",
-                color: "#0d0d0d",
-                marginBottom: "2px",
-              }}>
-                ohm.
-              </p>
+              <OhmName />
               <p style={{ fontSize: "11px", fontWeight: 300, color: "rgba(13,13,13,0.4)", letterSpacing: "0.02em" }}>
                 ruas · cse · bengaluru
               </p>

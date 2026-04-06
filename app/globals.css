@@ -19,10 +19,12 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { -webkit-font-smoothing: antialiased; }
 
-::selection { background: #0d0d0d; color: #E8FF47; }
+/* selection: dark on red bg, neutral on cream */
+::selection { background: rgba(13,13,13,0.18); color: #0d0d0d; }
+.paper ::selection, .modal-paper ::selection { background: rgba(13,13,13,0.12); color: #0d0d0d; }
 
 @keyframes modalIn {
   from { opacity: 0; transform: translateY(10px) scale(0.98); }

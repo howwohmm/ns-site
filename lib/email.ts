@@ -14,10 +14,11 @@ export async function sendConfirmationEmail({
   whatsappLink: string;
 }) {
   const resend = getResend();
-  await resend.emails.send({
-    from: "noise&signal by ohm. <onboarding@resend.dev>",
+  const result = await resend.emails.send({
+    from: "noise&signal <hi@ohm.quest>",
     to: email,
     subject: "welcome, join the GC.",
+
     html: `
       <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
         <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
@@ -34,6 +35,9 @@ export async function sendConfirmationEmail({
       </div>
     `,
   });
+  if (result.error) {
+    throw new Error(`Resend error: ${JSON.stringify(result.error)}`);
+  }
 }
 
 export async function sendReminderEmail({
@@ -49,7 +53,7 @@ export async function sendReminderEmail({
 }) {
   const resend = getResend();
   await resend.emails.send({
-    from: "noise&signal by ohm. <onboarding@resend.dev>",
+    from: "noise&signal <hi@ohm.quest>",
     to: email,
     subject,
     html: `

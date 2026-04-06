@@ -27,7 +27,11 @@ export async function POST(req: NextRequest) {
     const sessions = await sql`SELECT whatsapp_link FROM sessions ORDER BY created_at DESC LIMIT 1` as Record<string, unknown>[];
     const whatsappLink = (sessions[0]?.whatsapp_link as string) ?? process.env.WHATSAPP_GROUP_LINK ?? "#";
 
-    await sendConfirmationEmail({ name, email, whatsappLink });
+    try {
+      await sendConfirmationEmail({ name, email, whatsappLink });
+    } catch (emailErr) {
+      console.error("email send failed (registration still succeeded):", emailErr);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {

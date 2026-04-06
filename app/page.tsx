@@ -8,135 +8,162 @@ export default function Home() {
   const [registered, setRegistered] = useState(false);
 
   return (
-    <div
-      className="grain"
-      style={{
-        background: "#0d0d0d",
-        color: "#f0ede6",
+    <>
+      <style>{`
+        @keyframes grain {
+          0%, 100% { transform: translate(0, 0) }
+          10%  { transform: translate(-4%, -5%) }
+          20%  { transform: translate(-8%,  4%) }
+          30%  { transform: translate( 4%, -8%) }
+          40%  { transform: translate(-4%, 12%) }
+          50%  { transform: translate(-8%,  4%) }
+          60%  { transform: translate(12%,  0%) }
+          70%  { transform: translate( 0%,  8%) }
+          80%  { transform: translate(-12%, 0%) }
+          90%  { transform: translate( 8%,  4%) }
+        }
+        .paper {
+          position: relative;
+          overflow: hidden;
+        }
+        .paper::after {
+          content: '';
+          position: absolute;
+          inset: -100%;
+          width: 300%;
+          height: 300%;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          opacity: 0.09;
+          pointer-events: none;
+          z-index: 1;
+          animation: grain 0.4s steps(2) infinite;
+        }
+        .paper > * { position: relative; z-index: 2; }
+      `}</style>
+
+      {/* ── PAGE: LIME BACKGROUND ── */}
+      <div style={{
+        background: "#E8FF47",
         minHeight: "100svh",
-        height: "100svh",
         display: "flex",
-        flexDirection: "column",
-        fontFamily: "var(--font-manrope), sans-serif",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
-      {/* ── TOP BAR ── */}
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px clamp(20px, 4vw, 48px)",
-        flexShrink: 0,
-      }}>
-        <span style={{ fontSize: "12px", fontWeight: 400, letterSpacing: "0.04em", color: "rgba(240,237,230,0.45)" }}>
-          noise&signal
-        </span>
-        <span style={{ fontSize: "12px", fontWeight: 400, letterSpacing: "0.04em", color: "rgba(240,237,230,0.45)" }}>
-          session 01
-        </span>
-      </div>
-
-      {/* ── POSTER HEADLINE ── */}
-      <div style={{
-        flex: 1,
-        display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
-        padding: "0 clamp(20px, 4vw, 48px)",
+        padding: "clamp(24px, 5vw, 56px)",
+        fontFamily: "var(--font-manrope), sans-serif",
       }}>
-        <h1 style={{
-          fontSize: "clamp(52px, 11.5vw, 160px)",
-          fontWeight: 700,
-          lineHeight: 0.95,
-          letterSpacing: "-0.04em",
-          color: "#f0ede6",
-          textTransform: "lowercase",
-        }}>
-          something<br />
-          is happening<br />
-          <span style={{ color: "#E8FF47" }}>at ruas.</span>
-        </h1>
-      </div>
 
-      {/* ── BOTTOM BAR ── */}
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-end",
-        padding: "clamp(16px, 3vw, 32px) clamp(20px, 4vw, 48px)",
-        flexShrink: 0,
-        gap: "24px",
-        flexWrap: "wrap",
-      }}>
-        {/* left: description + CTA */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        {/* ── CARD: CREAM PAPER ── */}
+        <div
+          className="paper"
+          style={{
+            background: "#f2ede4",
+            width: "100%",
+            maxWidth: "680px",
+            padding: "clamp(28px, 5vw, 52px) clamp(28px, 5vw, 52px) clamp(24px, 4vw, 44px)",
+          }}
+        >
+
+          {/* salutation */}
           <p style={{
-            fontSize: "clamp(12px, 1.4vw, 14px)",
-            fontWeight: 300,
-            lineHeight: 1.65,
-            color: "rgba(240,237,230,0.4)",
-            maxWidth: "340px",
+            fontFamily: "var(--font-playfair), serif",
+            fontSize: "clamp(14px, 1.6vw, 18px)",
+            fontStyle: "italic",
+            fontWeight: 400,
+            color: "#0d0d0d",
+            marginBottom: "clamp(12px, 2vw, 20px)",
           }}>
-            a 1-hour session on what's actually being built in tech right now.
-            no teachers. no slides. no syllabus.
+            noise &amp; signal,
           </p>
 
-          {!registered ? (
-            <button
-              onClick={() => setFlowOpen(true)}
-              style={{
-                background: "#E8FF47",
+          {/* body — fills the card */}
+          <p style={{
+            fontSize: "clamp(26px, 3.8vw, 48px)",
+            fontWeight: 700,
+            lineHeight: 1.12,
+            letterSpacing: "-0.025em",
+            color: "#0d0d0d",
+            marginBottom: "clamp(24px, 4vw, 40px)",
+          }}>
+            {registered
+              ? "you're in. details drop 24hrs before. check your email — we'll tell you exactly when and where."
+              : "something is happening at RUAS this week. it's not on the notice board. your professor doesn't know about it. it's an hour of the ground reality — what's being built, what's breaking, and what people your age are building with AI tools right now."}
+          </p>
+
+          {/* divider + closing */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            marginBottom: "clamp(20px, 3vw, 32px)",
+          }}>
+            <div style={{ flex: 1, height: "1px", background: "#0d0d0d", opacity: 0.2 }} />
+            <p style={{
+              fontFamily: "var(--font-playfair), serif",
+              fontSize: "clamp(14px, 1.6vw, 18px)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              color: "#0d0d0d",
+              whiteSpace: "nowrap",
+            }}>
+              {registered ? "see you there," : "15 from your class already know,"}
+            </p>
+          </div>
+
+          {/* bottom: CTA + credit */}
+          <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}>
+            {!registered ? (
+              <button
+                onClick={() => setFlowOpen(true)}
+                style={{
+                  background: "#0d0d0d",
+                  color: "#f2ede4",
+                  border: "none",
+                  padding: "0 20px",
+                  height: "40px",
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  fontFamily: "var(--font-manrope), sans-serif",
+                  letterSpacing: "0.02em",
+                  cursor: "pointer",
+                  borderRadius: "4px",
+                  transition: "opacity 0.15s",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+              >
+                register to find out when →
+              </button>
+            ) : (
+              <span style={{ fontSize: "12px", fontWeight: 400, color: "rgba(13,13,13,0.4)" }}>
+                check your email for details
+              </span>
+            )}
+
+            <div style={{ textAlign: "right" }}>
+              <p style={{
+                fontFamily: "var(--font-playfair), serif",
+                fontSize: "clamp(14px, 1.6vw, 18px)",
+                fontStyle: "italic",
                 color: "#0d0d0d",
-                border: "none",
-                padding: "0 20px",
-                height: "40px",
-                fontSize: "12px",
-                fontWeight: 600,
-                fontFamily: "var(--font-manrope), sans-serif",
-                letterSpacing: "0.02em",
-                cursor: "pointer",
-                borderRadius: "5px",
-                transition: "opacity 0.15s",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "flex-start",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            >
-              register to find out when →
-            </button>
-          ) : (
-            <p style={{ fontSize: "13px", fontWeight: 400, color: "rgba(240,237,230,0.5)" }}>
-              <span style={{ color: "#E8FF47" }}>you're in.</span> check your email.
-            </p>
-          )}
-        </div>
+                marginBottom: "2px",
+              }}>
+                ohm.
+              </p>
+              <p style={{ fontSize: "11px", fontWeight: 300, color: "rgba(13,13,13,0.4)", letterSpacing: "0.02em" }}>
+                ruas · cse · bengaluru
+              </p>
+            </div>
+          </div>
 
-        {/* right: meta */}
-        <div style={{ textAlign: "right", flexShrink: 0 }}>
-          <p style={{ fontSize: "12px", fontWeight: 400, color: "rgba(240,237,230,0.25)", lineHeight: 1.8, letterSpacing: "0.02em" }}>
-            by ohm. · ruas cse<br />
-            bengaluru · 2026<br />
-            <a
-              href="https://x.com/ohmdreams"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "rgba(240,237,230,0.25)", textDecoration: "none", transition: "color 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "rgba(240,237,230,0.6)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "rgba(240,237,230,0.25)")}
-            >
-              x.com/ohmdreams
-            </a>
-          </p>
-          {!registered && (
-            <p style={{ fontSize: "11px", fontWeight: 300, color: "rgba(240,237,230,0.18)", marginTop: "8px" }}>
-              15 from your class are already in
-            </p>
-          )}
         </div>
       </div>
 
@@ -147,6 +174,6 @@ export default function Home() {
           onSuccess={() => { setFlowOpen(false); setRegistered(true); }}
         />
       )}
-    </div>
+    </>
   );
 }

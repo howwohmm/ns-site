@@ -195,7 +195,7 @@ export default function Home() {
 
             <div style={{ textAlign: "right" }}>
               <OhmName />
-              <p style={{ fontSize: "11px", fontWeight: 300, color: "rgba(13,13,13,0.4)", letterSpacing: "0.02em" }}>
+              <p style={{ fontSize: "12px", fontWeight: 300, color: "rgba(13,13,13,0.4)", letterSpacing: "0.02em" }}>
                 ruas · cse · bengaluru
               </p>
             </div>

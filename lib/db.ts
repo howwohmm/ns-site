@@ -17,6 +17,7 @@ export async function setupDb() {
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
       email TEXT NOT NULL UNIQUE,
+      roll_number TEXT,
       push_subscription TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )

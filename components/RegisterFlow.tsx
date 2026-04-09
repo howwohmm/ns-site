@@ -19,6 +19,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
   const [step, setStep] = useState<Step>(notificationsSupported && Notification.permission === "default" ? "gate" : "form");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [rollNumber, setRollNumber] = useState("");
   const [error, setError] = useState("");
   const [pushSub, setPushSub] = useState<PushSubscription | null>(null);
 
@@ -40,14 +41,14 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) { setError("both fields are required."); return; }
+    if (!name.trim() || !email.trim() || !rollNumber.trim()) { setError("all fields are required."); return; }
     setStep("loading");
     setError("");
     try {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), pushSubscription: pushSub ? JSON.stringify(pushSub) : null }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), rollNumber: rollNumber.trim(), pushSubscription: pushSub ? JSON.stringify(pushSub) : null }),
       });
       if (!res.ok) { const d = await res.json(); throw new Error(d.error || "something went wrong"); }
       onSuccess();
@@ -245,6 +246,15 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                   required
                   style={inputStyle}
                 />
+                <input
+                  className="modal-input"
+                  type="text"
+                  placeholder="roll number"
+                  value={rollNumber}
+                  onChange={e => setRollNumber(e.target.value)}
+                  required
+                  style={inputStyle}
+                />
               </div>
 
               {error && <p style={{ fontSize: "12px", color: "#cc2200", fontWeight: 400 }}>{error}</p>}
@@ -258,15 +268,6 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                 i'm in →
               </button>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <div style={{ flex: 1, height: "1px", background: "rgba(13,13,13,0.15)" }} />
-                <p style={{
-                  fontFamily: "var(--font-playfair), serif",
-                  fontSize: "14px",
-                  fontStyle: "italic",
-                  color: "rgba(13,13,13,0.4)",
-                }}>ohm.</p>
-              </div>
             </form>
           )}
 

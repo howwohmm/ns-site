@@ -4,10 +4,10 @@ import { sendConfirmationEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, pushSubscription } = await req.json();
+    const { name, email, rollNumber, pushSubscription } = await req.json();
 
-    if (!name || !email) {
-      return NextResponse.json({ error: "name and email required" }, { status: 400 });
+    if (!name || !email || !rollNumber) {
+      return NextResponse.json({ error: "name, email and roll number required" }, { status: 400 });
     }
 
     await setupDb();
@@ -19,8 +19,8 @@ export async function POST(req: NextRequest) {
     }
 
     await sql`
-      INSERT INTO registrations (name, email, push_subscription)
-      VALUES (${name}, ${email}, ${pushSubscription ?? null})
+      INSERT INTO registrations (name, email, roll_number, push_subscription)
+      VALUES (${name}, ${email}, ${rollNumber}, ${pushSubscription ?? null})
     `;
 
     // get whatsapp link from session config

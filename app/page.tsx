@@ -136,12 +136,12 @@ export default function Home() {
             ) : (
               <>
                 <p style={{ margin: "0 0 0.6em" }}>sign up with your email.<br />ohm handles the rest.</p>
-                <p style={{ margin: "0 0 0.6em" }}>sessions happen across RUAS peenya —<br />classrooms, auditoriums — and you&apos;ll know first.</p>
+                <p style={{ margin: "0 0 0.6em" }}>sessions happen across RUAS peenya -<br />classrooms, auditoriums - and you&apos;ll know first.</p>
                 <p style={{ margin: "0 0 0.6em" }}>fair warning though:</p>
                 <p style={{ margin: "0 0 0.6em" }}>
                   if you&apos;re here for attendance,<br />
                   if you hate being challenged,<br />
-                  if AI makes you roll your eyes —
+                  if AI makes you roll your eyes -
                 </p>
                 <p style={{ margin: "0 0 0.6em" }}>i&apos;ll ask you to leave.<br />politely. but i will.</p>
                 <p style={{ margin: 0 }}>the ones who stay make it worth it.</p>

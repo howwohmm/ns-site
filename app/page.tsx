@@ -121,18 +121,33 @@ export default function Home() {
           </p>
 
           {/* body — fills the card */}
-          <p className="body-enter" style={{
+          <div className="body-enter" style={{
             fontSize: "clamp(22px, 3vw, 40px)",
             fontWeight: 700,
-            lineHeight: 1.12,
+            lineHeight: 1.2,
             letterSpacing: "-0.025em",
             color: "#0d0d0d",
             marginBottom: "clamp(24px, 4vw, 40px)",
           }}>
-            {registered
-              ? "you're in -- a mail from ohm just landed in your inbox with a link to the whatsapp GC -- join it to stay in the loop -- things are a bit scrappy right now, but if this experiment works, it'll get proper."
-              : "sign up with your email -- ohm handles the rest -- sessions happen across RUAS peenya, classrooms, auditoriums, and you'll know first -- fair warning though: if you're here for attendance, if you hate being challenged, if AI makes you roll your eyes -- i'll ask you to leave. politely. but i will -- the ones who stay make it worth it."}
-          </p>
+            {registered ? (
+              <p style={{ margin: 0 }}>
+                you&apos;re in -- a mail from ohm just landed in your inbox with a link to the whatsapp GC -- join it to stay in the loop -- things are a bit scrappy right now, but if this experiment works, it&apos;ll get proper.
+              </p>
+            ) : (
+              <>
+                <p style={{ margin: "0 0 0.6em" }}>sign up with your email.<br />ohm handles the rest.</p>
+                <p style={{ margin: "0 0 0.6em" }}>sessions happen across RUAS peenya —<br />classrooms, auditoriums — and you&apos;ll know first.</p>
+                <p style={{ margin: "0 0 0.6em" }}>fair warning though:</p>
+                <p style={{ margin: "0 0 0.6em" }}>
+                  if you&apos;re here for attendance,<br />
+                  if you hate being challenged,<br />
+                  if AI makes you roll your eyes —
+                </p>
+                <p style={{ margin: "0 0 0.6em" }}>i&apos;ll ask you to leave.<br />politely. but i will.</p>
+                <p style={{ margin: 0 }}>the ones who stay make it worth it.</p>
+              </>
+            )}
+          </div>
 
           {/* divider + closing */}
           <div className="footer-enter" style={{

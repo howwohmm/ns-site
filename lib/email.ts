@@ -17,14 +17,14 @@ export async function sendConfirmationEmail({
   const result = await resend.emails.send({
     from: "noise&signal <hi@ohm.quest>",
     to: email,
-    subject: "welcome, join the GC.",
+    subject: "welcome to noise&signal by ohm.",
 
     html: `
-      <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
-        <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
-          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise &amp; signal,</p>
+      <div style="background:#0d0d0d;padding:40px 24px;font-family:system-ui,sans-serif;">
+        <div style="background:#ffffff;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise&amp;signal,</p>
           <p style="font-size:28px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0d0d0d;margin:0 0 28px;">
-            you're in, ${name}. details drop 24hrs before. we'll reach you then. an experiment by second year MnC students — your weekly dose of the AI saga.
+            you're approved, ${name} -- you're in the first group of this community -- all updates live in the GC below -- resources like the claude api, supabase subscriptions and more -- ohm leads the intel with y'all in person -- sessions happen across RUAS peenya and you'll know first -- things are a bit scrappy right now, but if this experiment works, it'll get proper.
           </p>
           <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
           <table width="100%" style="border-collapse:collapse;"><tr>
@@ -57,9 +57,9 @@ export async function sendReminderEmail({
     to: email,
     subject,
     html: `
-      <div style="background:#E8200A;padding:40px 24px;font-family:system-ui,sans-serif;">
-        <div style="background:#f2ede4;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
-          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise &amp; signal,</p>
+      <div style="background:#0d0d0d;padding:40px 24px;font-family:system-ui,sans-serif;">
+        <div style="background:#ffffff;max-width:480px;margin:0 auto;padding:36px 36px 32px;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 16px;">noise&amp;signal,</p>
           <p style="font-size:26px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:#0d0d0d;margin:0 0 24px;">${body}</p>
           <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
           <table width="100%" style="border-collapse:collapse;"><tr>

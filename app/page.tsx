@@ -117,7 +117,7 @@ export default function Home() {
             color: "#0d0d0d",
             marginBottom: "clamp(12px, 2vw, 20px)",
           }}>
-            noise &amp; signal,
+            noise&amp;signal,
           </p>
 
           {/* body — fills the card */}
@@ -130,8 +130,8 @@ export default function Home() {
             marginBottom: "clamp(24px, 4vw, 40px)",
           }}>
             {registered
-              ? "you're in. details drop 24hrs before. check your email — we'll tell you exactly when and where."
-              : "something is happening at RUAS this week. your professor doesn't know about it. it's an hour of the ground reality — what's being built, what's breaking, and what people your age are building with AI tools right now."}
+              ? "you're in -- a mail from ohm just landed in your inbox with a link to the whatsapp GC -- join it to stay in the loop -- things are a bit scrappy right now, but if this experiment works, it'll get proper."
+              : "sign up with your email -- ohm handles the rest -- sessions happen across RUAS peenya, classrooms, auditoriums, and you'll know first -- fair warning though: if you're here for attendance, if you hate being challenged, if AI makes you roll your eyes -- i'll ask you to leave. politely. but i will -- the ones who stay make it worth it."}
           </p>
 
           {/* divider + closing */}
@@ -185,7 +185,7 @@ export default function Home() {
                 onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
                 onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
-                register to find out when →
+                sign up →
               </button>
             ) : (
               <span style={{ fontSize: "12px", fontWeight: 400, color: "rgba(13,13,13,0.4)" }}>

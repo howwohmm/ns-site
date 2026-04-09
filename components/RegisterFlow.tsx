@@ -157,7 +157,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                   color: "#0d0d0d",
                   marginBottom: "12px",
                 }}>
-                  noise &amp; signal,
+                  noise&amp;signal,
                 </p>
                 <h2 style={{
                   fontSize: "28px",
@@ -213,7 +213,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
                   color: "#0d0d0d",
                   marginBottom: "12px",
                 }}>
-                  noise &amp; signal,
+                  noise&amp;signal,
                 </p>
                 <h2 style={{
                   fontSize: "26px",

@@ -130,9 +130,12 @@ export default function Home() {
             marginBottom: "clamp(24px, 4vw, 40px)",
           }}>
             {registered ? (
-              <p style={{ margin: 0 }}>
-                you&apos;re in -- a mail from ohm just landed in your inbox with a link to the whatsapp GC -- join it to stay in the loop -- things are a bit scrappy right now, but if this experiment works, it&apos;ll get proper.
-              </p>
+              <>
+                <p style={{ margin: "0 0 0.6em" }}>you&apos;re in.</p>
+                <p style={{ margin: "0 0 0.6em" }}>a mail from ohm just landed in your inbox - it has a link to the whatsapp GC.</p>
+                <p style={{ margin: "0 0 0.6em" }}>join it to stay in the loop.</p>
+                <p style={{ margin: 0 }}>things are a bit scrappy right now, but if this experiment works, it&apos;ll get proper.</p>
+              </>
             ) : (
               <>
                 <p style={{ margin: "0 0 0.6em" }}>sign up with your email.<br />ohm handles the rest.</p>

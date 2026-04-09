@@ -22,17 +22,21 @@ export async function sendConfirmationEmail({
     html: `
       <div style="background:#0d0d0d;padding:40px 24px;font-family:Arial,sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center">
-        <table width="480" cellpadding="36" cellspacing="0" border="0" bgcolor="#ffffff">
-          <tr><td>
+        <table width="480" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
+          <tr><td style="padding:36px;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:16px;color:#0d0d0d;margin:0 0 20px;">noise&amp;signal,</p>
-            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">you're approved, ${name} -- you're in the first group of this community.</p>
-            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">all updates live in the GC below -- resources like the claude api, supabase subscriptions and more.</p>
-            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">ohm leads the intel with y'all in person -- sessions happen across RUAS peenya and you'll know first.</p>
-            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 28px;">things are a bit scrappy right now, but if this experiment works, it'll get proper.</p>
+            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">${name}, you're approved &#8211; welcome to the first group.</p>
+            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">you'll be added to more groups over time. that's where the good stuff lives: claude api keys, supabase pro subscriptions, and more.</p>
+            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 14px;">in-person sessions run across the peenya campus at RUAS. ohm leads them. you'll be the first to know when something's scheduled.</p>
+            <p style="font-size:22px;font-weight:700;line-height:1.25;color:#0d0d0d;margin:0 0 28px;">p.s. it's early and scrappy. we'll make it proper once we know this experiment has legs.</p>
             <hr style="border:none;border-top:1px solid #dddddd;margin:0 0 24px;" />
             <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
               <td>
-                <a href="${whatsappLink}" style="background-color:#0d0d0d;color:#ffffff !important;display:inline-block;padding:12px 22px;text-decoration:none !important;font-size:13px;font-weight:700;font-family:Arial,sans-serif;border-radius:4px;">join the group &rarr;</a>
+                <table cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td bgcolor="#0d0d0d" style="border-radius:4px;">
+                    <a href="${whatsappLink}" target="_blank" style="display:inline-block;padding:12px 22px;font-size:13px;font-weight:700;font-family:Arial,sans-serif;color:#ffffff;text-decoration:none;"><font color="#ffffff">join the group &rarr;</font></a>
+                  </td>
+                </tr></table>
               </td>
               <td align="right" style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</td>
             </tr></table>

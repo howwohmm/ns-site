@@ -9,6 +9,9 @@ export async function POST(req: NextRequest) {
     if (!name || !email || !rollNumber) {
       return NextResponse.json({ error: "name, email and roll number required" }, { status: 400 });
     }
+    if (!/^\d{2}[a-zA-Z]{4}\d{6}$/i.test(rollNumber)) {
+      return NextResponse.json({ error: "invalid roll number format" }, { status: 400 });
+    }
 
     await setupDb();
 

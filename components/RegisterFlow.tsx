@@ -42,6 +42,7 @@ export default function RegisterFlow({ onClose, onSuccess }: Props) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !rollNumber.trim()) { setError("all fields are required."); return; }
+    if (!/^\d{2}[a-zA-Z]{4}\d{6}$/i.test(rollNumber.trim())) { setError("invalid roll number format. example: 24etmc412023"); return; }
     setStep("loading");
     setError("");
     try {

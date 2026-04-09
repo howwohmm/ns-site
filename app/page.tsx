@@ -136,7 +136,7 @@ export default function Home() {
             ) : (
               <>
                 <p style={{ margin: "0 0 0.6em" }}>sign up with your email.<br />ohm handles the rest.</p>
-                <p style={{ margin: "0 0 0.6em" }}>sessions happen across RUAS peenya -<br />classrooms, auditoriums - and you&apos;ll know first.</p>
+                <p style={{ margin: "0 0 0.6em" }}>sessions happen across RUAS peenya - classrooms, auditoriums - and you&apos;ll know first.</p>
                 <p style={{ margin: "0 0 0.6em" }}>fair warning though:</p>
                 <p style={{ margin: "0 0 0.6em" }}>
                   if you&apos;re here for attendance,<br />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Manrope, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +14,12 @@ const playfair = Playfair_Display({
   weight: ["400", "700", "900"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("h-full", manrope.variable, playfair.variable, "font-sans")}>
+    <html lang="en" className={cn("h-full", manrope.variable, playfair.variable, inter.variable, "font-sans")}>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-manrope), sans-serif" }}

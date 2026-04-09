@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import RegisterFlowV2 from "@/components/RegisterFlowV2";
+import { useState } from "react";
+import RegisterFlow from "@/components/RegisterFlow";
 
 function OhmName() {
   const [hovered, setHovered] = useState(false);
@@ -11,11 +11,10 @@ function OhmName() {
       onMouseLeave={() => setHovered(false)}
       onTouchStart={() => setHovered(v => !v)}
       style={{
-        fontFamily: "var(--font-inter), sans-serif",
+        fontFamily: "var(--font-playfair), serif",
         fontSize: "clamp(14px, 1.6vw, 18px)",
         fontStyle: "italic",
-        fontWeight: 300,
-        color: "rgba(255,255,255,0.85)",
+        color: "#0d0d0d",
         marginBottom: "2px",
         cursor: "default",
         transition: "opacity 0.2s",
@@ -26,25 +25,6 @@ function OhmName() {
   );
 }
 
-function LiveClock() {
-  const [time, setTime] = useState("");
-  useEffect(() => {
-    function tick() {
-      const now = new Date();
-      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      const ist = new Date(utc + 5.5 * 3600000);
-      const h = String(ist.getHours()).padStart(2, "0");
-      const m = String(ist.getMinutes()).padStart(2, "0");
-      const s = String(ist.getSeconds()).padStart(2, "0");
-      setTime(`IST ${h}:${m}:${s}`);
-    }
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return <span>{time}</span>;
-}
-
 export default function Home() {
   const [flowOpen, setFlowOpen] = useState(false);
   const [registered, setRegistered] = useState(false);
@@ -52,8 +32,6 @@ export default function Home() {
   return (
     <>
       <style>{`
-        html, body { background: #080808 !important; }
-
         @keyframes grain {
           0%, 100% { transform: translate(0, 0) }
           10%  { transform: translate(-4%, -5%) }
@@ -74,93 +52,90 @@ export default function Home() {
           from { opacity: 0; }
           to   { opacity: 1; }
         }
-        .v2-card-enter { animation: cardIn 0.6s cubic-bezier(0.16,1,0.3,1) both; }
-        .v2-sal-enter  { animation: fadeIn 0.4s ease both; animation-delay: 0.15s; }
-        .v2-body-enter { animation: fadeIn 0.5s ease both; animation-delay: 0.25s; }
-        .v2-foot-enter { animation: fadeIn 0.4s ease both; animation-delay: 0.4s; }
-
-        .v2-paper { position: relative; overflow: hidden; }
-        .v2-paper::after {
+        .card-enter {
+          animation: cardIn 0.6s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        .salutation-enter {
+          animation: fadeIn 0.4s ease both;
+          animation-delay: 0.15s;
+        }
+        .body-enter {
+          animation: fadeIn 0.5s ease both;
+          animation-delay: 0.25s;
+        }
+        .footer-enter {
+          animation: fadeIn 0.4s ease both;
+          animation-delay: 0.4s;
+        }
+        .paper {
+          position: relative;
+          overflow: hidden;
+        }
+        .paper::after {
           content: '';
           position: absolute;
           inset: -100%;
           width: 300%;
           height: 300%;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-          opacity: 0.06;
+          opacity: 0.09;
           pointer-events: none;
           z-index: 1;
           animation: grain 0.4s steps(2) infinite;
         }
-        .v2-paper > * { position: relative; z-index: 2; }
-        .v2-btn { transition: opacity 0.15s; }
-        .v2-btn:hover { opacity: 0.75; }
+        .paper > * { position: relative; z-index: 2; }
       `}</style>
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/sun.avif"
-        alt=""
-        style={{
-          position: "fixed",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-          filter: "brightness(0.85) saturate(1.1)",
-          zIndex: 0,
-        }}
-      />
-
+      {/* ── PAGE: LIME BACKGROUND ── */}
       <div style={{
-        position: "relative",
-        zIndex: 10,
-        background: "transparent",
+        background: "#E8200A",
         minHeight: "100svh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "clamp(20px, 5vw, 56px)",
-        fontFamily: "var(--font-inter), sans-serif",
+        padding: "clamp(24px, 5vw, 56px)",
+        fontFamily: "var(--font-manrope), sans-serif",
       }}>
 
+        {/* ── CARD: CREAM PAPER ── */}
         <div
-          className="v2-paper v2-card-enter"
+          className="paper card-enter"
           style={{
-            background: "rgba(0,0,0,0.28)",
-            backdropFilter: "blur(18px)",
-            WebkitBackdropFilter: "blur(18px)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            background: "#f2ede4",
             width: "100%",
             maxWidth: "680px",
             padding: "clamp(28px, 5vw, 52px) clamp(28px, 5vw, 52px) clamp(24px, 4vw, 44px)",
           }}
         >
 
-          <p className="v2-sal-enter" style={{
-            fontFamily: "var(--font-inter), sans-serif",
+          {/* salutation */}
+          <p className="salutation-enter" style={{
+            fontFamily: "var(--font-playfair), serif",
             fontSize: "clamp(14px, 1.6vw, 18px)",
             fontStyle: "italic",
-            fontWeight: 300,
-            color: "rgba(255,255,255,0.7)",
+            fontWeight: 400,
+            color: "#0d0d0d",
             marginBottom: "clamp(12px, 2vw, 20px)",
           }}>
             noise&amp;signal,
           </p>
 
-          <div className="v2-body-enter" style={{
-            fontSize: "clamp(19px, 3vw, 40px)",
+          {/* body — fills the card */}
+          <div className="body-enter" style={{
+            fontSize: "clamp(18px, 2.4vw, 34px)",
             fontWeight: 700,
             lineHeight: 1.2,
             letterSpacing: "-0.025em",
-            color: "#fff",
+            color: "#0d0d0d",
             marginBottom: "clamp(24px, 4vw, 40px)",
           }}>
             {registered ? (
-              <p style={{ margin: 0 }}>
-                you&apos;re in -- a mail from ohm just landed in your inbox with a link to the whatsapp GC -- join it to stay in the loop -- things are a bit scrappy right now, but if this experiment works, it&apos;ll get proper.
-              </p>
+              <>
+                <p style={{ margin: "0 0 0.6em" }}>you&apos;re in.</p>
+                <p style={{ margin: "0 0 0.6em" }}>a mail from ohm just landed in your inbox - it has a link to the whatsapp GC.</p>
+                <p style={{ margin: "0 0 0.6em" }}>join it to stay in the loop.</p>
+                <p style={{ margin: 0 }}>things are a bit scrappy right now, but if this experiment works, it&apos;ll get proper.</p>
+              </>
             ) : (
               <>
                 <p style={{ margin: "0 0 0.6em" }}>sign up with your email.<br />ohm handles the rest.</p>
@@ -177,26 +152,28 @@ export default function Home() {
             )}
           </div>
 
-          <div className="v2-foot-enter" style={{
+          {/* divider + closing */}
+          <div className="footer-enter" style={{
             display: "flex",
             alignItems: "center",
             gap: "16px",
             marginBottom: "clamp(20px, 3vw, 32px)",
           }}>
-            <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.15)" }} />
+            <div style={{ flex: 1, height: "1px", background: "#0d0d0d", opacity: 0.2 }} />
             <p style={{
-              fontFamily: "var(--font-inter), sans-serif",
+              fontFamily: "var(--font-playfair), serif",
               fontSize: "clamp(14px, 1.6vw, 18px)",
               fontStyle: "italic",
-              fontWeight: 300,
-              color: "rgba(255,255,255,0.6)",
+              fontWeight: 400,
+              color: "#0d0d0d",
               whiteSpace: "nowrap",
             }}>
               {registered ? "see you there," : "find out before everyone else does,"}
             </p>
           </div>
 
-          <div className="v2-foot-enter" style={{
+          {/* bottom: CTA + credit */}
+          <div className="footer-enter" style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
@@ -205,39 +182,39 @@ export default function Home() {
           }}>
             {!registered ? (
               <button
-                className="v2-btn"
                 onClick={() => setFlowOpen(true)}
                 style={{
-                  background: "#fff",
-                  color: "#080808",
+                  background: "#0d0d0d",
+                  color: "#f2ede4",
                   border: "none",
                   padding: "0 20px",
                   height: "44px",
                   fontSize: "12px",
                   fontWeight: 600,
-                  fontFamily: "var(--font-inter), sans-serif",
-                  letterSpacing: "0.04em",
+                  fontFamily: "var(--font-manrope), sans-serif",
+                  letterSpacing: "0.02em",
                   cursor: "pointer",
+                  borderRadius: "4px",
+                  transition: "opacity 0.15s",
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
                 }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
                 sign up →
               </button>
             ) : (
-              <span style={{ fontSize: "12px", fontWeight: 300, color: "rgba(255,255,255,0.3)" }}>
+              <span style={{ fontSize: "12px", fontWeight: 400, color: "rgba(13,13,13,0.4)" }}>
                 check your email for details
               </span>
             )}
 
             <div style={{ textAlign: "right", marginLeft: "auto" }}>
               <OhmName />
-              <p style={{ fontSize: "12px", fontWeight: 300, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
+              <p style={{ fontSize: "12px", fontWeight: 300, color: "rgba(13,13,13,0.4)", letterSpacing: "0.02em" }}>
                 ruas · cse · bengaluru
-              </p>
-              <p style={{ fontSize: "11px", fontWeight: 200, color: "rgba(255,255,255,0.2)", letterSpacing: "0.06em", marginTop: "4px" }}>
-                <LiveClock />
               </p>
             </div>
           </div>
@@ -245,8 +222,9 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── MODAL ── */}
       {flowOpen && (
-        <RegisterFlowV2
+        <RegisterFlow
           onClose={() => setFlowOpen(false)}
           onSuccess={() => { setFlowOpen(false); setRegistered(true); }}
         />

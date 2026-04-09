@@ -27,10 +27,10 @@ export async function sendConfirmationEmail({
             you're approved, ${name} -- you're in the first group of this community -- all updates live in the GC below -- resources like the claude api, supabase subscriptions and more -- ohm leads the intel with y'all in person -- sessions happen across RUAS peenya and you'll know first -- things are a bit scrappy right now, but if this experiment works, it'll get proper.
           </p>
           <hr style="border:none;border-top:1px solid rgba(13,13,13,0.15);margin:0 0 20px;" />
-          <table width="100%" style="border-collapse:collapse;"><tr>
-            <td><a href="${whatsappLink}" style="background:#0d0d0d;color:#f2ede4;padding:10px 18px;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;display:inline-block;">join the group →</a></td>
-            <td align="right"><span style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</span></td>
-          </tr></table>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <a href="${whatsappLink}" style="background:#0d0d0d;color:#ffffff;padding:10px 18px;text-decoration:none;font-size:13px;font-weight:600;border-radius:4px;display:inline-block;">join the group →</a>
+            <span style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</span>
+          </div>
         </div>
       </div>
     `,

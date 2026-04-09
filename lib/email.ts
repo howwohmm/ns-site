@@ -32,11 +32,7 @@ export async function sendConfirmationEmail({
             <hr style="border:none;border-top:1px solid #dddddd;margin:0 0 24px;" />
             <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
               <td>
-                <table cellpadding="0" cellspacing="0" border="0"><tr>
-                  <td bgcolor="#0d0d0d" style="border-radius:4px;">
-                    <a href="${whatsappLink}" target="_blank" style="display:inline-block;padding:12px 22px;font-size:13px;font-weight:700;font-family:Arial,sans-serif;color:#ffffff;text-decoration:none;"><font color="#ffffff">join the group &rarr;</font></a>
-                  </td>
-                </tr></table>
+                <a href="${whatsappLink}" target="_blank" style="background-color:#0d0d0d;color:#ffffff;display:inline-block;padding:13px 22px;font-size:13px;font-weight:700;font-family:Arial,sans-serif;text-decoration:none;border-radius:4px;">join the group &rarr;</a>
               </td>
               <td align="right" style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#0d0d0d;">ohm.</td>
             </tr></table>

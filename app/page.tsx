@@ -122,7 +122,7 @@ export default function Home() {
 
           {/* body — fills the card */}
           <p className="body-enter" style={{
-            fontSize: "clamp(26px, 3.8vw, 48px)",
+            fontSize: "clamp(22px, 3vw, 40px)",
             fontWeight: 700,
             lineHeight: 1.12,
             letterSpacing: "-0.025em",
